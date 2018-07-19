@@ -1,3 +1,10 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/ZjVyKXp9hec
+
+// Based off of Shawn Van Every's Live Web
+// http://itp.nyu.edu/~sve204/liveweb_fall2013/week3.html
 var blobs = [];
 
 function Blob(id, x, y, r) {
@@ -68,22 +75,22 @@ io.sockets.on('connection',
         blob.x = data.x;
         blob.y = data.y;
         blob.r = data.r;
-        blob.x2 = data.x/9;
-        blob.y2 = data.y/9;
+        blob.x2 = data.x / 9;
+        blob.y2 = data.y / 9;
       }
     );
 
 
 
     socket.on('disconnect', function() {
-        ships = blobs;
-        console.log("Client" + socket.id + "has disconnected," + ships[0].id);
-        for (i = 0; i < ships.length; i++) {
-            if (ships[i].id == socket.id) {
-                ships.splice(i, 1);
-                console.log(ships);
-            }
+      ships = blobs;
+      console.log("Client" + socket.id + "has disconnected," + ships[0].id);
+      for (i = 0; i < ships.length; i++) {
+        if (ships[i].id == socket.id) {
+          ships.splice(i, 1);
+          console.log(ships);
         }
+      }
 
 
     });
