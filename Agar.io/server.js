@@ -1,4 +1,3 @@
-
 var blobs = [];
 
 function Blob(id, x, y, r) {
